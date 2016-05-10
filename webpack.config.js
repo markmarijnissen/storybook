@@ -9,8 +9,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -22,7 +21,10 @@ module.exports = {
         test: /\.js$/,
         loaders: [ 'babel' ],
         exclude: /node_modules/,
-        include: __dirname
+        include: __dirname,
+        query: {
+          present: ["es2015", "react"]
+        }
       },
       {
         test: /\.css?$/,
