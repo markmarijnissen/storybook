@@ -42,7 +42,9 @@ const TimeLineComponent = React.createClass({
         } else {
             return (
                 <MuiThemeProvider muiTheme={theme}>
-                    <Subheader>U heeft nog geen metingen ...</Subheader>
+                    <div style={styles.body}>
+                        <Subheader>U heeft nog geen metingen ...</Subheader>
+                    </div>
                 </MuiThemeProvider>
             );
         }
