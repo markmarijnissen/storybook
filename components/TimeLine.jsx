@@ -8,11 +8,13 @@ import theme from "../lib/theme";
 
 const TimeLineComponent = React.createClass({
     propTypes: {
-        dag: React.PropTypes.object
+        dag: React.PropTypes.object,
+        clickedLabelHandler: React.PropTypes.func
     },
 
     render() {
-        const {dag} = this.props;
+        const {dag, clickedLabelHandler} = this.props;
+        console.log("rneder timeline", clickedLabelHandler);
         const styles = {
             body: {
                 margin: 0,
@@ -33,7 +35,7 @@ const TimeLineComponent = React.createClass({
                             </Step>
 
                             {dag.metingen.map((meting, i) => (
-                                <div key={i}>{this.renderMeetMoment(meting) }</div>
+                                <div key={i}>{this.renderMeetMoment(meting, clickedLabelHandler) }</div>
                             )) }
                         </TimeLine>
                     </div>
@@ -50,10 +52,10 @@ const TimeLineComponent = React.createClass({
         }
     },
 
-    renderMeetMoment(meting) {
+    renderMeetMoment(meting, clickedLabelHandler) {
         return (
             <Step>
-                <StepLabel textLeft={meting.moment} type={meting.type}>{meting.omschrijving}</StepLabel>
+                <StepLabel textLeft={meting.moment} type={meting.type} onClick={clickedLabelHandler.bind(null, meting.type)}>{meting.omschrijving}</StepLabel>
             </Step>
         );
     }
