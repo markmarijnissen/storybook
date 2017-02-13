@@ -1,7 +1,8 @@
 import React from "react";
-import {Step, Subheader} from "material-ui";
+import {Step, Subheader, FloatingActionButton} from "material-ui";
 import TimeLine from "../lib/TimeLine/TimeLine.js";
 import StepLabel from "../lib/TimeLine/StepLabel.js";
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import theme from "../lib/theme";
@@ -21,8 +22,14 @@ const TimeLineComponent = React.createClass({
                 width: "100%",
                 height: "100%",
                 fontFamily: "'Roboto', sans-serif",
-                fontSize: "14px"
+                fontSize: "14px",
             },
+            fab: {
+                position: "relative",
+                left: "100%",
+                transform: "translate(-100%,0)",
+                marginRight: 20
+            }
         };
 
         if (dag && dag.metingen) {
@@ -38,7 +45,11 @@ const TimeLineComponent = React.createClass({
                                 <div key={i}>{this.renderMeetMoment(meting, clickedLabelHandler) }</div>
                             )) }
                         </TimeLine>
+                        <FloatingActionButton mini={true} secondary={true} style={styles.fab}>
+                            <ContentAdd />
+                        </FloatingActionButton>
                     </div>
+
                 </MuiThemeProvider>
             );
         } else {
