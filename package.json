@@ -1,7 +1,8 @@
 {
-  "name": "redux-todomvc-example",
-  "version": "0.0.1",
+  "name": "components-orikami",
+  "version": "0.0.2",
   "description": "Storybook van orikami",
+  "author": "Stijn Albers van der Linden",
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
@@ -10,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/redux.git"
+    "url": "https://github.com/dreamyourweb/storybook.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reactjs/redux/issues"
+    "url": "https://github.com/dreamyourweb/storybook/issues"
   },
-  "homepage": "http://redux.js.org",
+  "homepage": "https://github.com/dreamyourweb/storybook",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "babel-preset-stage-2": "^6.5.0",
     "classnames": "^2.1.2",
-    "react": "=15.3.2",
+    "react": "^15.3.2",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
