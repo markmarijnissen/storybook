@@ -1,5 +1,6 @@
-var SliderComponent = require("./components/Slides.jsx");
+'use strict';
+var Drop = require("./lib/Slider/Drop");
 
 module.exports = {
-    SliderComponent: SliderComponent
+    Drop: Drop
 };

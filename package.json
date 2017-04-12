@@ -1,6 +1,6 @@
 {
   "name": "components-orikami",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Storybook van orikami",
   "author": "Stijn Albers van der Linden",
   "main": "main.js",
