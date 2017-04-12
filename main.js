@@ -1,1 +1,1 @@
-import SliderComponent from "./components/Slides.jsx"
+var SliderComponent = require("./components/Slides.jsx");
