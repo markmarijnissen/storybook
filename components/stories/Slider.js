@@ -14,10 +14,10 @@ storiesOf('Slider', module)
   })
   .add('with popup', () => {
     const min = 0;
-    const max = 5;
-    const startValue = 2.5;
+    const max = 3;
+    const startValue = 2;
     const popUp = true;
-    const step = 0.001;
+    const step = 1;
      return(<Slider popUp={popUp} min={min} max={max} startValue={startValue} step={step}/>);
       
      

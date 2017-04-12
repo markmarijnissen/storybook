@@ -19,13 +19,14 @@
   "homepage": "http://redux.js.org",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "babel-preset-env": "^1.2.1",
     "babel-preset-stage-2": "^6.5.0",
     "classnames": "^2.1.2",
+    "material-ui": "^0.15.0",
     "react": "=15.3.2",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
-    "material-ui": "^0.15.0",
     "redux": "^3.5.2",
     "stack-source-map": "^1.0.4"
   },

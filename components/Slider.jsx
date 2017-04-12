@@ -4,7 +4,7 @@ import theme from "../lib/theme";
 import {Slider as SliderUI} from "material-ui";
 import Drop from "../lib/Slider/Drop.js"
 
-const SliderComponent = React.createClass({
+const Slider = React.createClass({
 
 
     propTypes: {
@@ -12,7 +12,8 @@ const SliderComponent = React.createClass({
         startValue: React.PropTypes.number,
         min: React.PropTypes.number,
         max: React.PropTypes.number,
-        step: React.PropTypes.number
+        step: React.PropTypes.number,
+        parentChange: React.PropTypes.func
     },
 
 
@@ -33,13 +34,11 @@ const SliderComponent = React.createClass({
         var dropMove = value/(max - min)*100 ;
         var dropMoveString = dropMove.toString();
         var dropMovePercentage = dropMoveString.concat("%");
-         this.setState({sliderValue: roundSliderValue, dropPlacement: dropMovePercentage});
-        
+        this.setState({sliderValue: roundSliderValue, dropPlacement: dropMovePercentage});
+        if (this.props.parentChange) {
+            this.props.parentChange(value);
+        }
     },
-
-
-
-
 
     render() {
         const {sliderValue, dropPlacement} = this.state;
@@ -52,7 +51,6 @@ const SliderComponent = React.createClass({
                 marginRight: 10
             },
 
-
             value:{
                 position: "relative",
                 color: "white",
@@ -60,9 +58,6 @@ const SliderComponent = React.createClass({
                 zIndex: 10,
                 fontFamily: "'Roboto', sans-serif",
                 fontSize: "14px"
-                
-
-                
             },
             label:{
                 display: "inline-block",
@@ -71,57 +66,37 @@ const SliderComponent = React.createClass({
                 transform: "translate(-50%)",
                 marginLeft: dropPlacement
             }
-
         };
        
-
+        var drop;
         if (popUp) {
-            return (
-                <MuiThemeProvider muiTheme={theme}>
-                    <div style = {styles.sliderSpace}> 
-                        <div style= {styles.label}>
-                            <Drop> </Drop>
-                            <div style={styles.value}> {sliderValue}</div>
-                        </div>
-                        <SliderUI 
-                            {...this.props}
-                            value={startValue}
-                            onChange={(event, value) => this.onChange(value)}
-                            min={min}
-                            max={max}
-                            step={step} 
-                            onDragStart={null} 
-                            style = {styles.sliderStyle}
-                        />
-                    </div>
-                </MuiThemeProvider>
-               
-            );
-        } else {
-            return (
-                
-                <MuiThemeProvider muiTheme={theme}>
-                    <div style = {styles.sliderSpace}>
-                        <SliderUI 
-                            {...this.props}
-                            value={startValue}
-                            onChange={(event, value) => this.onChange(value)}
-                            min={min}
-                            max={max}
-                            step={step} 
-                            onDragStart={null}   
-                        />
-                    </div>
-                </MuiThemeProvider>
+            drop = (
+                <div style= {styles.label}>
+                    <Drop> </Drop>
+                    <div style={styles.value}> {sliderValue}</div>
+                </div>
             );
         }
+                
+        return (
+            <MuiThemeProvider muiTheme={theme}>
+                <div style = {styles.sliderSpace}> 
+                    {drop}
+                    <SliderUI 
+                        {...this.props}
+                        value={startValue}
+                        onChange={(event, value) => this.onChange(value)}
+                        min={min}
+                        max={max}
+                        step={step} 
+                        onDragStart={null} 
+                        style = {styles.sliderStyle}
+                    />
+                </div>
+            </MuiThemeProvider>
+            
+        );
     }
-
-
-
-    
-
-
 });
 
-export default SliderComponent;
+export default Slider;
