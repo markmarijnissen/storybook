@@ -1,0 +1,1 @@
+import SliderComponent from "./components/Slides.jsx"

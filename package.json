@@ -1,8 +1,9 @@
 {
   "name": "components-orikami",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Storybook van orikami",
   "author": "Stijn Albers van der Linden",
+  "main": "",
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
