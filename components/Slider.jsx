@@ -2,7 +2,7 @@ import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import theme from "../lib/theme";
 import {Slider as SliderUI} from "material-ui";
-import Drop from "../lib/Slider/Drop.js"
+import Drop from "../lib/Slider/Drop.jsx"
 
 const SliderComponent = React.createClass({
 
