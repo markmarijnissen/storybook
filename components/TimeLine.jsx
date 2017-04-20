@@ -15,7 +15,7 @@ const TimeLineComponent = React.createClass({
 
     render() {
         const {dag, clickedLabelHandler} = this.props;
-        console.log("rneder timeline", clickedLabelHandler);
+        // console.log("rneder timeline", clickedLabelHandler);
         const styles = {
             body: {
                 margin: 0,
@@ -45,7 +45,7 @@ const TimeLineComponent = React.createClass({
                                 <div key={i}>{this.renderMeetMoment(meting, clickedLabelHandler) }</div>
                             )) }
                         </TimeLine>
-                        <FloatingActionButton mini={true} secondary={true} style={styles.fab}>
+                        <FloatingActionButton mini={false} secondary={false} style={styles.fab}>
                             <ContentAdd />
                         </FloatingActionButton>
                     </div>
@@ -57,6 +57,9 @@ const TimeLineComponent = React.createClass({
                 <MuiThemeProvider muiTheme={theme}>
                     <div style={styles.body}>
                         <Subheader>U heeft nog geen metingen ...</Subheader>
+                        <FloatingActionButton mini={false} secondary={true} style={styles.fab}>
+                            <ContentAdd />
+                        </FloatingActionButton>
                     </div>
                 </MuiThemeProvider>
             );
