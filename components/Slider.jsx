@@ -2,7 +2,7 @@ import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import theme from "../lib/theme";
 import {Slider as SliderUI} from "material-ui";
-import Drop from "../lib/Slider/Drop.jsx"
+import {Drop} from "../main.js"
 
 const SliderComponent = React.createClass({
 
@@ -37,11 +37,8 @@ const SliderComponent = React.createClass({
         
     },
 
-
-
-
-
     render() {
+        console.log("Drop", Drop);
         const {sliderValue, dropPlacement} = this.state;
         const {popUp, startValue, min, max, step} = this.props;
         const styles = {
@@ -80,9 +77,9 @@ const SliderComponent = React.createClass({
                 <MuiThemeProvider muiTheme={theme}>
                     <div style = {styles.sliderSpace}> 
                         <div style= {styles.label}>
-                            <Drop> </Drop>
                             <div style={styles.value}> {sliderValue}</div>
                         </div>
+                        <Drop />
                         <SliderUI 
                             {...this.props}
                             value={startValue}

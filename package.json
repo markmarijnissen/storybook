@@ -1,14 +1,15 @@
 {
   "name": "components-orikami",
-  "version": "0.0.8",
+  "version": "0.0.20",
   "description": "Storybook van orikami",
   "author": "Stijn Albers van der Linden",
-  "main": "main.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001",
+    "prepublish": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",

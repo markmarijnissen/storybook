@@ -1,6 +1,6 @@
 'use strict';
-var Drop = require("./lib/Slider/Drop.jsx");
+var Drop = require("./lib/Slider/Drop.js");
 
 module.exports = {
-    Drop: Drop
+    Drop: Drop.default
 };
