@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {Step, Subheader, FloatingActionButton} from "material-ui";
 import TimeLine from "../lib/TimeLine/TimeLine.js";
 import StepLabel from "../lib/TimeLine/StepLabel.js";

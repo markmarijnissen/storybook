@@ -15,5 +15,6 @@ Make sure your path in the command prompt is exactly correct (folder names with 
 ## release new version npm package
 - update version in package.json
 ```
+babel lib/*/ --out-dir dist
 npm publish
 ```

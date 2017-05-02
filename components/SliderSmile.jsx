@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import {Slider as SliderUI} from "material-ui";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";

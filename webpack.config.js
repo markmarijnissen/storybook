@@ -12,8 +12,7 @@ module.exports = {
     libraryTarget: "commonjs2"
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    //new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurenceOrderPlugin()
   ],
   module: {
     loaders: [

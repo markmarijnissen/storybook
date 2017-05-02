@@ -1,24 +1,15 @@
 import React from 'react';
-import Slider from '../Slider.jsx';
+import Slider from "../Slider.jsx"
 import { storiesOf, action } from '@kadira/storybook';
 
 storiesOf('Slider', module)
 
-  .add('without popup', () => {
-    const min = 0;
-    const max = 10;
-    const startValue = 2.5;
-    const popUp = false;
-    const step = 0.5;
-      return(<Slider popUp={popUp} min={min} max={max} startValue={startValue} step={step}/>);
+  .add('default', () => {
+    return (<Slider />);
   })
-  .add('with popup', () => {
-    const min = 0;
-    const max = 5;
-    const startValue = 2.5;
-    const popUp = true;
-    const step = 0.001;
-     return(<Slider popUp={popUp} min={min} max={max} startValue={startValue} step={step}/>);
-      
-     
+  .add('without drop', () => {
+    return (<Slider min={0} max={10} step={0.001} value={5} drop={false} />);
+  })
+  .add('with drop', () => {
+    return (<Slider min={0} max={5} step={0.001} value={2.5} drop={true} />);
   });

@@ -1,0 +1,6 @@
+{
+  "compact": false,
+  "presets": [ "stage-2", "react", "es2015"],
+  "plugins": ["react-require", "babel-root-slash-import"],
+  "ignore": ["node_modules/**"]
+}
