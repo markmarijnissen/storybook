@@ -8,12 +8,18 @@ import ArrowBackIcon from "material-ui/svg-icons/navigation/arrow-back";
 
 
 storiesOf('AppBar', module)
+
+  .addDecorator(story => (
+    <MuiThemeProvider muiTheme={theme}>
+      {story()}
+    </MuiThemeProvider>
+  ))
+
     .add('menu', () => {
         const title = "Mijn Kwik";
         return (
-        <MuiThemeProvider muiTheme={theme}>
             <AppBar title={title} />
-        </MuiThemeProvider>) 
+    );
     })
 
     .add('back', () => {
@@ -24,7 +30,5 @@ storiesOf('AppBar', module)
             </IconButton>
         );
         return (
-        <MuiThemeProvider muiTheme={theme}>
-            <AppBar title={title} nav={backButton}/>
-        </MuiThemeProvider>) 
+            <AppBar title={title} nav={backButton}/>);
     })

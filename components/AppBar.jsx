@@ -49,7 +49,7 @@ const MijnKwikAppBar = React.createClass({
             actions,
             style            
         } = this.props;
-        const {appBar} = this.context.muiTheme;debugger
+        const {appBar} = this.context.muiTheme;
         const mergedStyle = Object.assign({
             position: "fixed",
             top: 0,
