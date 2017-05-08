@@ -59,7 +59,7 @@ const MijnKwikAppBar = React.createClass({
         return (
             <AppBar
                 title={title}
-                onLeftIconButtonTouchTap={toggleDrawer}
+                // onLeftIconButtonTouchTap={toggleDrawer}
                 iconElementLeft={nav}
                 iconElementRight={actions}
                 style={mergedStyle}/>

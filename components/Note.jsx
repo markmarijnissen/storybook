@@ -1,12 +1,16 @@
 import React from "react";
 import AppBar from './AppBar';
 
-import {IconButton, TextField} from 'material-ui';
+import {IconButton, TextField, Dialog, FlatButton} from 'material-ui';
 import ArrowBackIcon from "material-ui/svg-icons/navigation/arrow-back";
 import DoneIcon from "material-ui/svg-icons/action/done";
 
 
 const Note = React.createClass({
+
+    propTypes: {
+        onSubmit: React.PropTypes.func.isRequired
+    },
 
     styles: {
         contentContainer: {
@@ -20,7 +24,53 @@ const Note = React.createClass({
         }
     },
 
+    getInitialState() {
+        return {
+            noteSend: false,
+            value: ''
+        }
+    },
+
+    handleChange(event) {
+        this.setState({
+            value: event.target.value
+        })
+    },
+
+    handleSubmit() {
+        this.props.onSubmit({
+            text: this.state.value
+        }).then(() => {
+            this.setState({
+                noteSend: true
+            })
+        })
+    },
+
+    handleDialogClose() {
+        this.setState({
+            noteSend: false,
+            text: ''
+        });
+    },
+
     render() {
+        let dialog;
+        if(this.state.noteSend) {
+            dialog = (
+                <Dialog
+                    title="Notitie toegevoegd"
+                    actions={[<FlatButton
+                        label="OK"
+                        primary={true}
+                        onClick={this.handleDialogClose}/>]}
+                    modal={false}
+                    open={true}
+                    >
+                    
+                </Dialog>
+            );
+        }
         const title = "Notitie toevoegen";
         const backButton = (
             <IconButton>
@@ -28,7 +78,7 @@ const Note = React.createClass({
             </IconButton>
         );
         const submitButton = (
-            <IconButton>
+            <IconButton onClick={this.handleSubmit}> 
                 <DoneIcon/>
             </IconButton>);
         return (
@@ -41,8 +91,11 @@ const Note = React.createClass({
                         rows={1}
                         rowsMax={6}
                         fullWidth={true}
+                        value={this.state.value}
+                        onChange={this.handleChange}
                     />
                 </div>
+                {dialog}
             </div>
         )
     }

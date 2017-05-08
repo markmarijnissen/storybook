@@ -12,6 +12,10 @@ storiesOf('Note', module)
   ))
 
   .add('default', () => {
-    
-    return <Note />;
+    const onSubmit = (note) => {
+      alert(note.text);
+      return new Promise(resolve => setTimeout(resolve,2000));
+    }
+
+    return <Note onSubmit={onSubmit} />;
   })
